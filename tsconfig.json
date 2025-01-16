@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": false,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "sourceMap": true,
+    "jsx": "react-jsx",
+    "allowImportingTsExtensions": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@ui": ["./app/shared/ui/index.ts"],
+      "@pages/*": ["./pages/*"],
+      "@icons": ["./app/shared/icons/index.ts"],
+      "@widjets/*": ["./widjets/*"],
+      "@entities/*": ["./entities/*"],
+      "@features/*": ["./features/*"],
+      "@styles/*": ["./app/styles/*"],
+      "@hooks/*": ["./app/shared/hooks/*"],
+      "@layouts/*": ["./app/layouts/*"],
+      "@shared-types/*": ["./app/shared/types/*"],
+      "@providers/*": ["./app/providers/*"]
+    }
+  },
+  "include": ["src"]
+  //  "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }]
+}

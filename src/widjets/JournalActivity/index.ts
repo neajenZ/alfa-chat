@@ -1,0 +1,1 @@
+export { JournalActivity } from './ui/JournalActivity.tsx'

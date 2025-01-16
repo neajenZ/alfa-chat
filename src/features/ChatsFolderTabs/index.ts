@@ -1,0 +1,1 @@
+export { ChatsFolderTabs } from './ui/ChatsFolderTabs.tsx'

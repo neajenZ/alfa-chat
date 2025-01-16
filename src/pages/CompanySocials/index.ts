@@ -1,0 +1,1 @@
+export { CompanySocials } from './ui/CompanySocials.tsx'

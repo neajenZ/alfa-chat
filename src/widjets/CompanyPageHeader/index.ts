@@ -1,0 +1,1 @@
+export { CompanyPageHeader } from './ui/CompanyPageHeader.tsx'

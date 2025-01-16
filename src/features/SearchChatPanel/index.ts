@@ -1,0 +1,1 @@
+export { SearchChatPanel } from './ui/SearchChatPanel.tsx'

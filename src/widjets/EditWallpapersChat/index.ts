@@ -1,0 +1,1 @@
+export { EditWallpapersChat } from './ui/EditWallpapersChat.tsx'
