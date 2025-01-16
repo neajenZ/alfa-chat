@@ -1989,4 +1989,4 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         gap: 20px;
         margin-left: auto;
     }
-`;B3.createRoot(document.getElementById("root")).render(s.jsx(M.StrictMode,{children:s.jsx(c9,{theme:Qy,children:s.jsxs(ng,{children:[s.jsx(Wy,{}),s.jsx(Gy,{})]})})}));
+`;B3.createRoot(document.getElementById("root")).render(s.jsx(M.StrictMode,{children:s.jsx(c9,{theme:Qy,children:s.jsxs(ng,{basename:"/alfa-chat/",children:[s.jsx(Wy,{}),s.jsx(Gy,{})]})})}));
