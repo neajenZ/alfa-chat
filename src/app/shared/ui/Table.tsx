@@ -3,6 +3,7 @@ import styled from "styled-components";
 import {Input} from "./Input.tsx";
 import {LeftArrow, Search} from "@icons";
 import ReactPaginate from "react-paginate";
+import {size} from "@styles/size.ts";
 
 interface TableColumn<T> {
     title: string;
@@ -44,6 +45,9 @@ const TableBody = styled.table`
 
 const TableCell = styled.td`
   padding: 12px 8px;
+    @media (${size.notebook}) {
+        padding-left: 0;
+    }
 `;
 
 const ActionCell = styled(TableCell)`

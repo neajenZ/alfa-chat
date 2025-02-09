@@ -1,4 +1,4 @@
-import {Button, Divider, Flex, ToggleButton} from "@ui";
+import {Button, Divider, Flex, SubTitleSide, ToggleButton} from "@ui";
 import styled from "styled-components";
 import {Delete, LeftArrow} from "@icons";
 import {Remove} from "../../../app/shared/icons/Remove.tsx";
@@ -9,7 +9,7 @@ export const EditChatsSettings = () => {
 
     return (
         <>
-            <BodyTitle>Обои</BodyTitle>
+            <SubTitleSide style={{ marginTop: '20px'}}>Обои</SubTitleSide>
 
             <Flex direction={'column'} gap={'10px'}>
                 <ButtonWrapper>

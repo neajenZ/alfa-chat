@@ -4,16 +4,17 @@ import {Delete, Edit, Facebook} from "@icons";
 import {useState} from "react";
 import {AddSocial} from "./AddSocial.tsx";
 import {EditSocial} from "./EditSocial.tsx";
+import {size} from "@styles/size.ts";
 
 const Social = () => {
     return (
-        <Flex gap={'10px'} align={'center'}>
+        <SocialBody gap={'10px'} align={'center'}>
             <Facebook />
             <User direction={'column'} align={'flex-start'}>
                 <p>Название аккаунта</p>
                 <span>Ссылка</span>
             </User>
-        </Flex>
+        </SocialBody>
     )
 }
 
@@ -51,11 +52,26 @@ export const CompanySocials = () => {
     )
 }
 
+const SocialBody = styled(Flex)`
+    @media (${size.notebook}) {
+        align-items: flex-start;
+    }
+`
+
 const Date = styled.p`
     color: ${({ theme }) => theme.colors.textSecondary};
     font-size: 14px;
     padding: 10px 16px;
     font-weight: 500;
+
+    @media (${size.notebook}) {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    @media (${size.phone}) {
+        padding-left: 0;
+    }
 `
 
 const Header = styled(Flex)`
@@ -78,6 +94,10 @@ const Header = styled(Flex)`
 const MainBoard = styled.div`
     background-color: ${({ theme }) => theme.colors.background};
     padding: 20px;
+    
+    @media (${size.notebook}) {
+        padding: 12px;
+    }
 `
 
 const Role = styled.div`
@@ -86,6 +106,15 @@ const Role = styled.div`
     font-size: 14px;
     font-weight: 600;
     text-decoration: underline;
+
+    @media (${size.notebook}) {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+
+    @media (${size.phone}) {
+        display: none;
+    }
 `
 
 const User = styled(Flex)`
@@ -98,5 +127,17 @@ const User = styled(Flex)`
         color: ${({ theme }) => theme.colors.textSecondary};
         font-size: 14px;
         font-weight: 500;
+    }
+
+    @media (${size.notebook}) {
+        text-align: left;
+        
+        p {
+            font-size: 15px;
+        }
+        
+        span {
+            font-size: 13px;
+        }
     }
 `

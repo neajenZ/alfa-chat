@@ -4,11 +4,12 @@ import {Delete, Edit} from "@icons";
 import {useState} from "react";
 import {AddGroup} from "./AddGroup.tsx";
 import {EditGroup} from "./EditGroup.tsx";
+import {size} from "@styles/size.ts";
 
 const Social = () => {
     return (
         <Flex gap={'10px'} align={'center'}>
-            <Avatar width={60} height={60}><img src="/user_avatar.png" alt="Avatar"/></Avatar>
+            <Avatar height={window.innerWidth <= 992 ? 45 : 60} width={window.innerWidth <= 992 ? 45 : 60}><img src="/user_avatar.png" alt="Avatar"/></Avatar>
             <User direction={'column'} align={'flex-start'}>
                 <p>Alfateam - Head Hunters</p>
                 <span>9 Участников \ 48 аккаунтов</span>
@@ -74,14 +75,10 @@ const Header = styled(Flex)`
 const MainBoard = styled.div`
     background-color: ${({ theme }) => theme.colors.background};
     padding: 20px;
-`
 
-const Role = styled.div`
-    color: ${({ theme }) => theme.colors.primary};
-    padding: 10px 16px;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: underline;
+    @media (${size.notebook}) {
+        padding: 10px;
+    }
 `
 
 const User = styled(Flex)`
@@ -94,5 +91,16 @@ const User = styled(Flex)`
         color: ${({ theme }) => theme.colors.textSecondary};
         font-size: 14px;
         font-weight: 500;
+    }
+    
+    @media (${size.notebook}) {
+        gap: 3px;
+        
+        p {
+            font-size: 14px;
+        }
+        span {
+            font-size: 13px;
+        }
     }
 `

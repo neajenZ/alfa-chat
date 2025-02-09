@@ -1,4 +1,4 @@
-import {Button, Divider, Flex, LeftSide} from "@ui";
+import {Button, Divider, Flex, LeftSide, SubTitleSide} from "@ui";
 import styled from "styled-components";
 import {Delete, LeftArrow, Plus} from "@icons";
 import {useSearchParams} from "react-router-dom";
@@ -62,7 +62,7 @@ export const SaveReplies = () => {
                 step === 'add' ? <AddSaveReply/> :
                     step === 'edit' ? <EditSaveReply /> : (
                     <>
-                        <BodyTitle>Ваши сохраненные ответы</BodyTitle>
+                        <SubTitleSide>Ваши сохраненные ответы</SubTitleSide>
 
                         <Flex direction={'column'} gap={'10px'}>
                             <ReplyItem onClick={() => handleStep('edit')}>

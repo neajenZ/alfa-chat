@@ -2,6 +2,7 @@ import styled from "styled-components";
 import {LeftArrow} from "@icons";
 import {Flex} from "./Flex.tsx";
 import {useState} from "react";
+import {size} from "@styles/size.ts";
 
 interface IItem {
     value: string,
@@ -76,6 +77,8 @@ const Body = styled(Flex)`
     padding: 15px 16px;
     border-radius: 8px;
     width: 100%;
-    svg {
+
+    @media (${size.notebook}) {
+        padding: 10px;
     }
 `

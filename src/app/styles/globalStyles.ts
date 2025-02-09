@@ -103,6 +103,7 @@ export const GlobalStyles = createGlobalStyle`
         display: flex;
         align-items: center;
         gap: 20px;
+        margin-bottom: 5px;
         margin-left: auto;
     }
 `

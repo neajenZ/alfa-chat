@@ -4,6 +4,7 @@ import {SearchChatPanel} from "@features/SearchChatPanel";
 import {SharedSettingsChats} from "@features/SharedSettingsChats";
 import {ChatsList} from "@features/ChatsList";
 import {ChatsFolderTabs} from "@features/ChatsFolderTabs";
+import {size} from "@styles/size.ts";
 
 export const ChatsLeftSide = () => {
     return (
@@ -35,4 +36,9 @@ const Top = styled.div`
     gap: 10px;
     width: 100%;
     margin-top: 20px;
+
+    @media (${size.notebook}) {
+        gap: 4px;
+        margin-top: 10px;
+    }
 `

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import {ChangeEvent, forwardRef, ReactElement, ReactNode} from "react";
 import {Send} from "@icons";
+import {size} from "@styles/size.ts";
 
 interface IProps {
     leftButtons?: ReactNode | ReactElement
@@ -14,7 +15,9 @@ interface IProps {
 
 export const MessageInput = forwardRef<HTMLDivElement, IProps>(({ leftButtons = <></>, rightButtons = <></>, value, bordered = false, onSend, onChange }: IProps, ref) => (
     <Body ref={ref} border={bordered}>
-        { leftButtons }
+        { leftButtons && (
+            <LeftButton>{leftButtons}</LeftButton>
+        ) }
         <Input type="text" value={value} onChange={onChange} placeholder={'Напишите сообщение...'}/>
         { !value && rightButtons }
         {
@@ -30,6 +33,15 @@ const SendButton = styled.button`
     }
 `
 
+const LeftButton = styled.div`
+    @media (${size.smallNotebook}) {
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+`
+
 const Body = styled.div<{ border: boolean }>`
     width: 100%;
     border: ${({ border, theme }) => border ? `1px solid ${theme.colors.borderColor}` : 'none'};
@@ -38,6 +50,10 @@ const Body = styled.div<{ border: boolean }>`
     padding: 15px 20px;
     display: flex;
     align-items: center;
+
+    @media (${size.smallNotebook}) {
+        padding: 10px 16px;
+    }
 `
 
 const Input = styled.input`
@@ -51,5 +67,9 @@ const Input = styled.input`
     
     &:placeholder {
         color: ${({theme}) => theme.colors.textSecondary};
+    }
+
+    @media (${size.smallNotebook}) {
+        font-size: 14px;
     }
 `

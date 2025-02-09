@@ -1,6 +1,7 @@
 import {Avatar, Flex} from "@ui";
 import {Edit} from "@icons";
 import styled from "styled-components";
+import {size} from "@styles/size.ts";
 
 export const CompanyPageHeader = () => {
     return (
@@ -26,6 +27,13 @@ const CompanyData = styled(Flex)`
         color: ${({ theme }) => theme.colors.text};
         font-size: 16px;
         font-weight: 500;
+    }
+
+    @media (${size.notebook}) {
+        gap: 2px;
         
+        p {
+            font-size: 14px;
+        }
     }
 `

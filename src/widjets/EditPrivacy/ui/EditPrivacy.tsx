@@ -1,4 +1,4 @@
-import {Divider, Flex, ToggleButton} from "@ui";
+import {Divider, Flex, SubTitleSide, ToggleButton} from "@ui";
 import styled from "styled-components";
 
 export const EditPrivacy = () => {
@@ -6,7 +6,7 @@ export const EditPrivacy = () => {
         <>
             <Divider />
 
-            <BodyTitle>Расширенные</BodyTitle>
+            <SubTitleSide>Расширенные</SubTitleSide>
 
             <Flex direction={'column'} gap={'10px'}>
                 <ToggleButton label={'Отключить предпросмотр ссылок'} />

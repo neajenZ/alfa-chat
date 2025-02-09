@@ -16,7 +16,8 @@ import {TextArea} from "./TextArea.tsx";
 import {ToggleButton} from "./ToggleButton.tsx";
 import {Table} from "./Table.tsx";
 import {Select} from "./Select.tsx";
+import {SubTitleSide} from "./SubTitleSide.tsx";
 
 export { 
-     Avatar, Flex, LeftSide, ChatType, ChatTag, ActionModal, ActionButton, Audio, Drawer, Modal, SelectButton, Button, Divider, Input, TextArea, ToggleButton, Table, Select
+     Avatar, Flex, SubTitleSide, LeftSide, ChatType, ChatTag, ActionModal, ActionButton, Audio, Drawer, Modal, SelectButton, Button, Divider, Input, TextArea, ToggleButton, Table, Select
 }

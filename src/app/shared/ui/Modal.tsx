@@ -1,6 +1,7 @@
 import {createPortal} from "react-dom";
 import styled from "styled-components";
 import {ReactElement, ReactNode} from "react";
+import {size} from "@styles/size.ts";
 
 interface IProps {
     width?: number,
@@ -23,6 +24,10 @@ const Body = styled.div<{ width: number }>`
     padding: 20px;
     width: ${({ width }) => width}px;
     border-radius: 30px;
+    
+    @media (${size.phone}) {
+        margin: 0 20px;
+    }
 `
 
 const Background = styled.div`

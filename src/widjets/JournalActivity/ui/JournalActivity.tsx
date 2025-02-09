@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import {Flex} from "@ui";
 import {Link} from "react-router-dom";
+import {size} from "@styles/size.ts";
 
 export const JournalActivity = () => {
     return (
@@ -53,6 +54,21 @@ const MainBoard = styled(Flex)`
         color: ${({ theme }) => theme.colors.text};
         margin-bottom: 24px;
     }
+
+    @media (${size.notebook}) {
+        padding: 10px;
+        
+        h5 {
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+    }
+
+    @media (max-width: 800px) {
+        grid-row: 3;
+        grid-column: 1;
+        align-items: flex-start;
+    }
 `
 
 const Icon = styled.div`
@@ -90,5 +106,13 @@ const Item = styled(Flex)`
         color: ${({ theme }) => theme.colors.text};
         font-size: 16px;
         font-weight: 500;
+    }
+
+    @media (${size.notebook}) {
+        gap: 12px;
+        
+        p {
+            font-size: 14px;
+        }
     }
 `

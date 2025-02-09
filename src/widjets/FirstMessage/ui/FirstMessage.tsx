@@ -1,4 +1,4 @@
-import {Button, Divider, Flex, LeftSide, TextArea, ToggleButton} from "@ui";
+import {Button, Divider, Flex, LeftSide, SubTitleSide, TextArea, ToggleButton} from "@ui";
 import styled from "styled-components";
 import {LeftArrow, Plus} from "@icons";
 import {useSearchParams} from "react-router-dom";
@@ -26,19 +26,12 @@ export const FirstMessage = () => {
 
             <Divider/>
 
-            <BodyTitle>Ваше приветственное сообщение</BodyTitle>
+            <SubTitleSide>Ваше приветственное сообщение</SubTitleSide>
 
             <TextArea placeholder={'Пример'} />
         </LeftSide>
     )
 }
-
-const BodyTitle = styled.h5`
-    color: ${({ theme }) => theme.colors.textSecondary};
-    font-size: 20px;
-    font-weight: 500;
-    margin-bottom: 10px;
-`
 
 const Logotype = styled(Flex)`
     flex-direction: column;

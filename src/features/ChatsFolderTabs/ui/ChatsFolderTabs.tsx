@@ -2,6 +2,7 @@ import React, {useRef, useState} from "react";
 import styled from "styled-components";
 import {useSearchParams} from "react-router-dom";
 import {ITab} from "@entities/Tab/model.ts";
+import {size} from "@styles/size.ts";
 
 interface IProps {
     tabs: ITab[];
@@ -71,6 +72,14 @@ const TabsContainer = styled.div<{ isDragging: boolean }>`
     &::-webkit-scrollbar {
         display: none;
     }
+
+    @media (${size.laptop}) {
+        gap: 10px;
+    }
+
+    @media (${size.notebook}) {
+        gap: 0;
+    }
 `;
 
 const TabItem = styled.div<{ isActive: boolean }>`
@@ -85,6 +94,10 @@ const TabItem = styled.div<{ isActive: boolean }>`
   &:hover {
     color: #007aff;
   }
+
+    @media (${size.laptop}) {
+        font-size: 14px;
+    }
 `;
 
 const TabCount = styled.span`

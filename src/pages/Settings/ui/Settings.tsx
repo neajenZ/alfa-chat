@@ -4,7 +4,7 @@ import {usePageTitle} from "@hooks/usePageTitle.ts";
 import {routes} from "../route.tsx";
 
 export const Settings = () => {
-    const title = usePageTitle(routes)
+    const title = usePageTitle(routes, 'settings')
 
     return (
         <LeftSide>

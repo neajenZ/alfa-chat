@@ -4,6 +4,7 @@ import {Message} from "@entities/Message";
 import {observer} from "mobx-react-lite";
 import withModeEdit from "@features/ChatMessages/ui/withModeEdit.tsx";
 import {IMessage} from "@entities/Message/model.ts";
+import {size} from "@styles/size.ts";
 
 interface MessageListProps {
     messages: unknown[];
@@ -32,6 +33,14 @@ const messages: IMessage[] = [
         text: "Я молодой веб-дизайнер, хочу стать директором Яндекса",
         time: "10:03 AM",
         type: "text",
+        isOutgoing: false,
+    },
+    {
+        id: "666",
+        text: "Я молодой веб-дизайнер, хочу стать директором Яндекса",
+        replyMessage: 'Help!!!',
+        time: "10:03 AM",
+        type: "reply",
         isOutgoing: false,
     },
     {
@@ -73,4 +82,8 @@ const Container = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+    @media (${size.smallNotebook}) {
+        height: calc(100vh - 134px); // Отнимаем размер шапки и ввода
+    }
+    
 `;

@@ -4,11 +4,12 @@ import {SettingsTable} from "@icons";
 import {useState} from "react";
 import {AddMember} from "./AddMember.tsx";
 import {EditMember} from "@pages/CompanyMembers/ui/EditMember.tsx";
+import {size} from "@styles/size.ts";
 
 const Member = () => {
     return (
         <Flex gap={'10px'} align={'center'}>
-            <Avatar width={60} height={60}><img src="/user_avatar.png" alt="Avatar"/></Avatar>
+            <Avatar height={window.innerWidth <= 992 ? 45 : 60} width={window.innerWidth <= 992 ? 45 : 60}><img src="/user_avatar.png" alt="Avatar"/></Avatar>
             <User direction={'column'} align={'flex-start'} gap={'4px'}>
                 <p>Maghzym Aiash</p>
                 <span>@wqgzuw * Последняя активность 21.12.2024 </span>
@@ -33,7 +34,7 @@ export const CompanyMembers = () => {
                 columns={[ { dataIndex: 'name', title: 'Имя', render: Member } ]}
                 actions={() => (
                     <Flex gap={'20px'} align={'center'} justify={'flex-end'}>
-                        <ShowButton>Посмотреть группы (5)</ShowButton>
+                        <ShowButton>Посмотреть группы {window.innerWidth >= 796 && '(5)'}</ShowButton>
                         <Role>Администратор</Role>
 
                         <button onClick={() => setEditUser(true)}>
@@ -69,6 +70,10 @@ const Header = styled(Flex)`
 const MainBoard = styled.div`
     background-color: ${({ theme }) => theme.colors.background};
     padding: 20px;
+
+    @media (${size.notebook}) {
+        padding: 10px;
+    }
 `
 
 const ShowButton = styled.button`
@@ -78,6 +83,15 @@ const ShowButton = styled.button`
     font-size: 14px;
     font-weight: 600;
     border: 1px solid ${({ theme }) => theme.colors.primary};
+
+    @media (${size.notebook}) {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    @media (${size.phone}) {
+        display: none;
+    }
 `
 
 const Role = styled.div`
@@ -85,6 +99,15 @@ const Role = styled.div`
     padding: 10px 16px;
     font-size: 14px;
     font-weight: 600;
+
+    @media (${size.notebook}) {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+
+    @media (${size.phone}) {
+        display: none;
+    }
 `
 
 const User = styled(Flex)`
@@ -97,5 +120,16 @@ const User = styled(Flex)`
         color: ${({ theme }) => theme.colors.textSecondary};
         font-size: 14px;
         font-weight: 500;
+    }
+    
+    @media (${size.notebook}) {
+        text-align: left;
+        p {
+            font-size: 14px;
+        }
+
+        span {
+            font-size: 13px;
+        }
     }
 `

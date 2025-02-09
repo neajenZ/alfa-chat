@@ -7,10 +7,11 @@ export const ChatsList = () => {
     const [position, setPosition] = useState({ x: 0, y: 0 })
 
     const handleClickContext = (e: MouseEvent, chat: unknown) => {
-        console.log(e)
         setPosition({ x: e.x, y: e.y })
         setIsComponentVisible(true)
     }
+
+
 
     return (
         <div ref={ref}>

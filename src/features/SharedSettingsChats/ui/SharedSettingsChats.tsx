@@ -3,6 +3,7 @@ import {Book, Folder, Message, Minus, Write} from "@icons";
 import {ActionButton, ActionModal} from "@ui";
 import {useSearchParams} from "react-router-dom";
 import {useOutsideClick} from "@hooks/useOutsideClick.ts";
+import {size} from "@styles/size.ts";
 
 export const SharedSettingsChats = () => {
     const { ref, isComponentVisible, setIsComponentVisible } = useOutsideClick(false)
@@ -58,5 +59,15 @@ const Button = styled.button<{ isActive: boolean }>`
     
     &:hover {
         opacity: 0.9;
+    }
+
+    @media (${size.notebook}) {
+        height: 38px;
+        width: 38px;
+        
+        svg {
+            width: 18px;
+            height: 18px;
+        }
     }
 `

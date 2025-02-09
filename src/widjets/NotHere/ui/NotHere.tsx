@@ -1,7 +1,8 @@
-import {Button, Divider, Flex, Input, LeftSide, SelectButton, TextArea, ToggleButton} from "@ui";
+import {Button, Divider, Flex, Input, LeftSide, SelectButton, SubTitleSide, TextArea, ToggleButton} from "@ui";
 import styled from "styled-components";
 import {LeftArrow, Plus} from "@icons";
 import {useSearchParams} from "react-router-dom";
+import {size} from "@styles/size.ts";
 
 export const NotHere = () => {
     const [searchParams, setSearchParams] = useSearchParams()
@@ -26,7 +27,7 @@ export const NotHere = () => {
 
             <Divider/>
 
-            <BodyTitle>Сообщение “Нет на месте”</BodyTitle>
+            <SubTitleSide>Сообщение “Нет на месте”</SubTitleSide>
             <TextArea placeholder={'Пример'} />
 
             <Divider />
@@ -49,7 +50,7 @@ export const NotHere = () => {
                 </ToggleItem>
             </Toggles>
 
-            <Flex margin={'20px 0 0 0'} align={'center'} gap={'40px'}>
+            <TimesContainer margin={'20px 0 0 0'} align={'center'} gap={'40px'}>
                 <RepeatItem>
                     <p>От:</p>
                     <Input placeholder={'XX:XX'} isMessage={false}/>
@@ -58,11 +59,17 @@ export const NotHere = () => {
                     <p>До:</p>
                     <Input placeholder={'XX:XX'} isMessage={false}/>
                 </RepeatItem>
-            </Flex>
+            </TimesContainer>
 
         </LeftSide>
     )
 }
+
+const TimesContainer = styled(Flex)`
+    @media (${size.notebook}) {
+        gap: 10px;
+    }    
+`
 
 const DividerToggle = styled.div`
     height: 1px;
@@ -92,6 +99,11 @@ const RepeatItem = styled(Flex)`
     }
     input::placeholder {
         text-align: center;
+    }
+
+    @media (${size.notebook}) {
+        flex-direction: column;
+        align-items: flex-start;
     }
 `
 

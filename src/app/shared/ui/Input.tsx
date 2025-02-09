@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import {ChangeEvent, ReactElement, ReactNode, useState} from "react";
 import {Send} from "@icons";
+import {size} from "@styles/size.ts";
 
 interface IProps {
     leftButtons: ReactNode | ReactElement
@@ -75,6 +76,11 @@ const Body = styled.div<{ labelInto?: boolean, background: boolean, border: bool
     display: flex;
     align-items: center;
     position: relative;
+    
+    @media (${size.notebook}) {
+        padding: ${({labelInto}) => labelInto ? '10px 15px 10px 10px' : '10px 10px'};
+    }
+    
 `
 
 const InputBody = styled.input<{ labelInto?: boolean }>`
@@ -89,5 +95,9 @@ const InputBody = styled.input<{ labelInto?: boolean }>`
     background-color: transparent;
     &::placeholder {
         color: ${({theme}) => theme.colors.textSecondary};
+    }
+    
+    @media (${size.notebook}) {
+        font-size: 14px;
     }
 `

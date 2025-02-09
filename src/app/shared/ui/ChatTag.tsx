@@ -9,4 +9,9 @@ export const ChatTag = styled.span`
   border-radius: 5px;
     text-shadow: 0.2px 0.2px 1px rgba(0, 0, 0, 0.1);
     border: 1px solid ${({ theme }) => theme.colors.borderColor};
+    
+    @media (max-width: 1120px) {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
 `;

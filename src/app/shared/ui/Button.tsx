@@ -1,5 +1,6 @@
 import {HTMLAttributes, ReactElement, ReactNode} from "react";
 import styled from "styled-components";
+import {size} from "@styles/size.ts";
 
 interface IProps extends HTMLAttributes<HTMLButtonElement> {
     text: string,
@@ -38,5 +39,10 @@ const ButtonBody = styled.button<{ color?: string | 'default' ,variant?: 'danger
         ${({ variant = 'default', theme }) => variant === 'menu' ? (
             `background-color: ${theme.colors.backgroundBlock};`
         ) : 'initial'}
+    }
+
+
+    @media (${size.notebook}) {
+        font-size: 14px;
     }
 `

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import {Flex} from "./Flex.tsx";
 import {Close} from "@icons";
 import {ReactElement, ReactNode} from "react";
+import {size} from "@styles/size.ts";
 
 interface IProps {
     title: string,
@@ -30,6 +31,14 @@ const Body = styled.div`
     height: 100vh;
     background-color: ${({ theme }) => theme.colors.background};
     padding: 40px 20px 0 20px;
+
+    @media (${size.notebook}) {
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 300px;
+        padding: 30px 10px;
+    }
 `
 
 const Header = styled(Flex)`

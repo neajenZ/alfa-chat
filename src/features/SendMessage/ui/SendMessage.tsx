@@ -10,6 +10,7 @@ import {Flex} from "@ui";
 import {PinFiles} from "../ui/PinFile/PinFile.tsx";
 import {InputModeEdit} from "../ui/InputModeEdit/InputModeEdit.tsx";
 import {useOutsideClick} from "@hooks/useOutsideClick.ts";
+import {size} from "@styles/size.ts";
 
 export const SendMessage = observer(() => {
     const { inputMessage, setMessage, handleOpenDrawers, mode } = useChatRoomStore()
@@ -34,13 +35,13 @@ export const SendMessage = observer(() => {
                     </EmojiContainer>
                 )}
                 rightButtons={(
-                    <Flex align={'center'} gap={'10px'}>
+                    <RightButtons align={'center'} gap={'10px'}>
                         <Button onClick={() => handleOpenDrawers('reply', true)} align={'center'} gap={'4px'}>
                             <ReplyMini />
                             <span>Ваши ответы</span>
                         </Button>
                         <PinFiles />
-                    </Flex>
+                    </RightButtons>
                 )}
             />
         </>
@@ -51,6 +52,15 @@ const EmojiContainer = styled.div`
     position: relative;
 `
 
+const RightButtons = styled(Flex)`
+    @media (${size.smallNotebook}) {
+        align-items: flex-end;
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+    }
+`
 
 const Button = styled(Flex)`
     border: 1px solid ${({ theme }) => theme.colors.primary};
@@ -63,5 +73,18 @@ const Button = styled(Flex)`
         font-weight: 500;
         white-space: nowrap;
         color: ${({ theme }) => theme.colors.primary};
+    }
+
+    @media (${size.smallNotebook}) {
+        padding: 4px 8px;
+        
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+        
+        span {
+            font-size: 12px;
+        }
     }
 `

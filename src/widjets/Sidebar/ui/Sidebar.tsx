@@ -2,6 +2,7 @@ import { Avatar, Flex } from "@ui"
 import styled from "styled-components"
 import {Chat, Members, Settings} from "@icons";
 import {useLocation, useNavigate} from "react-router-dom";
+import {size} from "@styles/size.ts";
 
 interface ISidebarLink {
     isActive: boolean
@@ -14,7 +15,7 @@ export const Sidebar = () => {
     return (
         <Body>
             <Flex align="center" height={'100%'} direction="column">
-                <Avatar>
+                <Avatar height={window.innerWidth <= 872 ? 35 : 50} width={window.innerWidth <= 872 ? 35 : 50}>
                     <img src="/logotype.png" alt=""/>
                 </Avatar>
                 <Divider />
@@ -32,7 +33,7 @@ export const Sidebar = () => {
                         <span>Настройки</span>
                     </SidebarLink>
                 </Flex>
-                <UserAvatar>
+                <UserAvatar height={window.innerWidth <= 872 ? 35 : 50} width={window.innerWidth <= 872 ? 35 : 50}>
                     <img src="/logotype.png" alt=""/>
                 </UserAvatar>
             </Flex>
@@ -42,9 +43,18 @@ export const Sidebar = () => {
 
 const Body = styled.div`
     background: ${(props) => props.theme.colors.background};
-    width: 100px;
+    min-width: 100px;
     height: 100%;
     padding: 40px 0;
+
+    @media (${size.notebook}) {
+        min-width: 73px;
+    }
+
+    @media (max-width: 872px) {
+        padding: 20px 0;
+        min-width: 50px;
+    }
 `
 
 const SidebarLink = styled(Flex)<ISidebarLink>`
@@ -62,6 +72,19 @@ const SidebarLink = styled(Flex)<ISidebarLink>`
 
     path {
         stroke: ${({ theme, isActive }) => isActive ? theme.colors.primary : theme.colors.textSecondary};
+    }
+
+    @media (${size.notebook}) {
+        border-width: 2px;
+        span {
+            font-size: 13px;
+        }
+    }
+
+    @media (max-width: 872px) {
+        span {
+            display: none;
+        }
     }
 `
 

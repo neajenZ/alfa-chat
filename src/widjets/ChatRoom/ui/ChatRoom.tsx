@@ -7,14 +7,16 @@ import {UserDrawer} from "@entities/ChatUser";
 import {SendMessage} from "@features/SendMessage";
 import {GIFDrawer, StickerDrawer} from "@entities/Emoji";
 import {QuickReplyList} from "@features/QuickReplyList";
+import styled from "styled-components";
+import {size} from "@styles/size.ts";
 
 
 export const ChatRoom = observer(() => {
     const { drawers, closeDrawer, isSearchSticker, handleOpenDrawers, handleOpenStickers } = useChatRoomStore()
 
     return (
-        <Flex align={'stretch'} width={'65%'}>
-            <Flex direction={'column'} width={drawers.user ? '55%' : '100%'}>
+        <Body align={'stretch'} width={'65%'}>
+            <Flex direction={'column'} width={window.innerWidth > 992 ? drawers.user ? '55%' : '100%' : '100%'}>
                 <ChatHeader />
                 <ChatMessages messages={[]} />
                 <SendMessage />
@@ -23,6 +25,13 @@ export const ChatRoom = observer(() => {
             { drawers.sticker && <StickerDrawer onClose={() => handleOpenDrawers('sticker', false)} /> }
             { drawers.gif && <GIFDrawer onClose={() => handleOpenDrawers('gif', false)} /> }
             { drawers.reply && <QuickReplyList onClose={() => handleOpenDrawers('reply', false)} /> }
-        </Flex>
+        </Body>
     )
 })
+
+
+const Body = styled(Flex)`
+    @media (${size.phone}) {
+        width: 100%;
+    }
+`

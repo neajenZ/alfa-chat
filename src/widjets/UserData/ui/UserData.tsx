@@ -1,8 +1,9 @@
-import {Avatar, Button, Divider, Flex} from "@ui";
+import {Avatar, Button, Divider, Flex, SubTitleSide} from "@ui";
 import {Chat2, Edit, Lock, Logout, Notification} from "@icons";
 import styled from "styled-components";
 import {Folder2} from "../../../app/shared/icons/Folder2.tsx";
 import {useNavigate} from "react-router-dom";
+import {size} from "@styles/size.ts";
 
 export const UserData = () => {
     const navigate = useNavigate()
@@ -26,7 +27,7 @@ export const UserData = () => {
 
             <Divider />
 
-            <BodyTitle>Ваши сохраненные ответы</BodyTitle>
+            <SubTitleSide>Ваши сохраненные ответы</SubTitleSide>
 
             <Flex direction={'column'} gap={'10px'}>
                 <Button onClick={() => navigate(`${window.location.pathname}/notifications`)} text={'Уведомление'} leftIcon={<Notification />} variant={'menu'} />
@@ -65,5 +66,17 @@ const UserLeft = styled(Flex)`
         color: ${({ theme }) => theme.colors.textSecondary};
         font-size: 16px;
         font-weight: 500;
+    }
+
+    @media (${size.notebook}) {
+        gap: 2px;
+        
+        h4 {
+            font-size: 17px;
+        }
+        
+        span {
+            font-size: 14px;
+        }
     }
 `

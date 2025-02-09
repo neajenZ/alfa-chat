@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {Search} from "@icons";
+import {size} from "@styles/size.ts";
 
 export const SearchChatPanel = () => {
     return (
@@ -19,6 +20,13 @@ const Body = styled.div`
         transform: translateY(-50%);
         left: 15px;
     }
+
+    @media (${size.notebook}) {
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+    }
 `
 
 const Input = styled.input`
@@ -33,5 +41,15 @@ const Input = styled.input`
     
     &::placeholder {
         color: ${({theme}) => theme.colors.textSecondary};
+    }
+
+    @media (${size.notebook}) {
+        padding: 10px 12px 10px 40px;
+        font-size: 15px;
+        
+        svg {
+            width: 16px;
+            height: 16px;
+        }
     }
 `

@@ -1,4 +1,4 @@
-import {Divider, Flex, ToggleButton} from "@ui";
+import {Divider, Flex, SubTitleSide, ToggleButton} from "@ui";
 import styled from "styled-components";
 
 export const EditUserNotifications = () => {
@@ -6,7 +6,7 @@ export const EditUserNotifications = () => {
         <>
             <Divider />
 
-            <BodyTitle>Уведомление о сообщениях</BodyTitle>
+            <SubTitleSide>Уведомление о сообщениях</SubTitleSide>
 
             <Flex direction={'column'} gap={'10px'}>
                 <ToggleButton label={'Показывать уведомления'} />
@@ -15,7 +15,7 @@ export const EditUserNotifications = () => {
 
             <Divider />
 
-            <BodyTitle>Уведомление групп</BodyTitle>
+            <SubTitleSide>Уведомление групп</SubTitleSide>
 
             <Flex direction={'column'} gap={'10px'}>
                 <ToggleButton label={'Показывать уведомления'} />

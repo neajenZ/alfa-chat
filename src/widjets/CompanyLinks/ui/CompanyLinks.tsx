@@ -2,10 +2,11 @@ import styled from "styled-components";
 import {Flex} from "@ui";
 import {List, UserList} from "@icons";
 import {Link} from "react-router-dom";
+import {size} from "@styles/size.ts";
 
 export const CompanyLinks = () => {
     return (
-        <Flex direction={'column'} gap={'20px'}>
+        <Wrapper direction={'column'} gap={'20px'}>
             <Item as={Link} to={`${window.location.pathname}/groups`}>
                 <List />
                 <Flex direction={'column'} gap={'8px'} align={'flex-start'}>
@@ -27,9 +28,24 @@ export const CompanyLinks = () => {
                     <p>Посмотретие привязанные соц.сети к вашей компании</p>
                 </Flex>
             </Item>
-        </Flex>
+        </Wrapper>
     )
 }
+
+const Wrapper = styled(Flex)`
+    @media (${size.notebook}) {
+        gap: 10px;
+    }
+
+    @media (max-width: 800px) {
+        flex-direction: row;
+        gap: 2px;
+    }
+
+    @media (${size.phone}) {
+        flex-direction: column;
+    }
+`
 
 const Item = styled(Flex)`
     background-color: ${({ theme }) => theme.colors.background};
@@ -53,5 +69,34 @@ const Item = styled(Flex)`
     
     svg {
         min-width: 24px;
+    }
+
+    @media (${size.notebook}) {
+        span {
+            font-size: 15px;
+        }
+        
+        p {
+            font-size: 12px;
+        }
+        
+        div {
+            gap: 2px;
+        }
+    }
+
+    @media (max-width: 800px) {
+        width: 100%;
+        padding: 5px;
+        span {
+            font-size: 13px;
+        }
+        p {
+            display: none;
+        }
+    }
+
+    @media (${size.phone}) {
+        min-height: 40px;
     }
 `

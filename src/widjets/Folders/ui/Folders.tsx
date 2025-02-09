@@ -7,6 +7,8 @@ import {SelectedChats} from "./SelectedChats/SelectedChats.tsx";
 import {useFolderRoomStore} from "@widjets/Folders/providers/context.tsx";
 import {observer} from "mobx-react-lite";
 import {SelectChats} from "@widjets/Folders/ui/SelectChats/SelectChats.tsx";
+import {size} from "@styles/size.ts";
+import {SubTitleSide} from "@ui";
 
 export const Folders = observer(() => {
     const { isSearchChat, setSearchChat } = useFolderRoomStore()
@@ -76,7 +78,7 @@ export const Folders = observer(() => {
                             step === 'add' ? <SelectedChats /> :
                                 step === 'edit' ? <EditSaveReply /> : (
                                     <>
-                                        <BodyTitle>Ваши папки с чатами</BodyTitle>
+                                        <SubTitleSide>Ваши папки с чатами</SubTitleSide>
 
                                         <Flex direction={'column'} gap={'10px'}>
                                             <ReplyItem>
@@ -97,7 +99,7 @@ export const Folders = observer(() => {
 
                                         <Divider />
 
-                                        <BodyTitle>Рекомендованные папки</BodyTitle>
+                                        <SubTitleSide>Рекомендованные папки</SubTitleSide>
 
                                         <Flex direction={'column'} gap={'10px'}>
                                             <ReplyItem>
@@ -147,6 +149,10 @@ const ReplyItem = styled(Flex)`
         background-color: ${({ theme }) => theme.colors.backgroundBlock};
         
     }
+    
+    @media (${size.laptop}) {
+        gap: 3px;
+    }
 `
 
 const BodyTitle = styled.h5`
@@ -154,6 +160,10 @@ const BodyTitle = styled.h5`
     font-size: 20px;
     font-weight: 500;
     margin-bottom: 10px;
+
+    @media (${size.laptop}) {
+        font-size: 17px;
+    }
 `
 
 const Logotype = styled(Flex)`
@@ -166,5 +176,15 @@ const Logotype = styled(Flex)`
         font-size: 14px;
         font-weight: 500;
         text-align: center;
+    }
+    
+    @media (${size.laptop}) {
+        img {
+            width: 100px;
+        }
+        
+        p {
+            font-size: 13px;
+        }
     }
 `
